@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create your own dress!</h1>
+    <button id="createDress">Create dress!</button><br/><br /><br />
+
+    <!-- canvas for the dress part selection -->
+    <canvas class="canvas" id="myCanvas"></canvas><br /><br />
+    <button id="sleeve" data-url="{% url 'dress_detail' dress_id=1 %}"= >Sleeve</button>
+    <button id="choli">Choli</button>
+    <script>
+        // get the urls 
+        // the frontand back photos are stored in the static folder not in the database
+        var frontUrl = "{% static 'media/front.svg'%}"
+        var backUrl = "{% static 'media/back.svg'%}"
+        // image is provided by the views
+        // store the photos in the datase later with price, description and other details
+        var sleeveImageUrl = "{% url 'dress_detail' dress_id=1 %}";
+        var choliImageUrl = "{% url 'dress_detail' dress_id=2 %}"
+    </script>
+    {% load static %}
+    <script src ="{% static 'javascript/script.js' %}"></script>
+</body>
+</html>
